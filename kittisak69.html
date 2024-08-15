@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การคูณตัวเลข</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>คูณตัวเลข</h1>
+    <label for="numberInput">กรอกตัวเลข:</label>
+    <input type="number" id="numberInput" placeholder="กรอกตัวเลข" />
+    <button onclick="multiplyNumber()">คูณ</button>
+
+    <div id="results"></div>
+
+    <script>
+        function multiplyNumber() {
+            // ดึงค่าจาก input
+            const numberInput = document.getElementById('numberInput').value;
+            const number = parseFloat(numberInput);
+
+            // ตรวจสอบว่าค่าที่กรอกเป็นตัวเลขหรือไม่
+            if (isNaN(number)) {
+                alert('กรุณากรอกตัวเลขที่ถูกต้อง');
+                return;
+            }
+
+            // เตรียมผลลัพธ์
+            let resultsHtml = '<h2>ผลลัพธ์:</h2><ul>';
+            for (let i = 1; i <= 12; i++) {
+                resultsHtml += `<li>${number} x ${i} = ${number * i}</li>`;
+            }
+            resultsHtml += '</ul>';
+
+            // แสดงผลลัพธ์ใน div
+            document.getElementById('results').innerHTML = resultsHtml;
+        }
+    </script>
+</body>
+</html>
